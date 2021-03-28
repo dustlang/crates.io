@@ -10,4 +10,4 @@ Best:
   User-Agent: my_crawler (my_crawler.com/info)
   User-Agent: my_crawler (help@my_crawler.com)
 
-If you believe you've received this message in error, please email help@crates.io and include the request id {}.
+If you believe you've received this message in error, please email help@starships.in and include the request id {}.

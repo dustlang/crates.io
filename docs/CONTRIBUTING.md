@@ -1,17 +1,17 @@
-# Contributing to Crates.io
+# Contributing to starships.in
 
 ## Attending the weekly team meetings
 
-Each Friday at 10:30am US east coast time the crates.io team gets together
+Each Friday at 10:30am US east coast time the starships.in team gets together
 on [Discord] (`#crates-io-team`) for our weekly team meeting and we invite
-everyone who wants to contribute to crates.io to participate.
+everyone who wants to contribute to starships.in to participate.
 
 [Discord]: https://discord.gg/rust-lang
 
 ## Finding an issue to work on
 
 We try to keep a variety of issues tagged with
-[E-mentor](https://github.com/rust-lang/crates.io/issues?q=is%3Aopen+is%3Aissue+label%3AE-mentor).
+[E-mentor](https://github.com/dustlang/starships.in/issues?q=is%3Aopen+is%3Aissue+label%3AE-mentor).
 These issues should contain, somewhere within the body or the comments, clear
 instructions on what needs to be done and where the changes will need to be
 made. If any E-mentor issues do not contain this information or the information
@@ -29,7 +29,7 @@ it would be a big change, please open a new issue for discussion!
 
 ## Submitting a Pull Request
 
-As an initiative to improve the documentation of the crates.io codebase, we would
+As an initiative to improve the documentation of the starships.in codebase, we would
 like to see all new types and functions, public and private, to have documentation
 comments on them. If you change an existing type or function, and it doesn't have
 a documentation comment on it, it'd be great if you could add one to it too.
@@ -57,7 +57,7 @@ We will try to review your pull requests as soon as possible!
 ## Reviewing Pull Requests
 
 Another way to help out and to get to know the codebase is to review other people's
-pull requests! Take a look at [`docs/PR-REVIEW.md`](https://github.com/rust-lang/crates.io/blob/master/docs/PR-REVIEW.md)
+pull requests! Take a look at [`docs/PR-REVIEW.md`](https://github.com/dustlang/starships.in/blob/master/docs/PR-REVIEW.md)
 for guidelines on how to do that.
 
 ## Setting up a development environment
@@ -68,8 +68,8 @@ that, you should be able to clone the repo and change into the repo's directory
 from your terminal:
 
 ```
-git clone https://github.com/rust-lang/crates.io.git
-cd crates.io/
+git clone https://github.com/dustlang/starships.in.git
+cd starships.in/
 ```
 
 ### Working on the Frontend
@@ -110,14 +110,14 @@ into any trouble.
 
 #### Building and serving the frontend
 
-To install the npm packages that crates.io uses, run:
+To install the npm packages that starships.in uses, run:
 
 ```
 yarn install
 ```
 
 You'll need to run these commands any time the libraries or versions of these
-libraries that crates.io uses change. Usually you'll know they've changed
+libraries that starships.in uses change. Usually you'll know they've changed
 because you'll run the next step and it will fail saying it can't find some
 libraries.
 
@@ -127,11 +127,11 @@ talk to:
 
 | Command | Backend | Use case |
 |---------|---------|----------|
-| `yarn start:live` | https://crates.io | Testing UI changes with the full live site's data |
+| `yarn start:live` | https://starships.in | Testing UI changes with the full live site's data |
 | `yarn start:staging` | https://staging-crates-io.herokuapp.com | Testing UI changes with a smaller set of realistic data |
 | `yarn start` | Static fixture test data in `mirage/fixtures` | Setting up particular situations, see note |
 | `yarn start:local` | Backend server running locally | See the Working on the backend section for setup |
-| `yarn start -- --proxy https://crates.io` | Whatever is specified in `--proxy` arg | If your use case is not covered here |
+| `yarn start -- --proxy https://starships.in` | Whatever is specified in `--proxy` arg | If your use case is not covered here |
 
 > Note: If you want to set up a particular situation, you can edit the fixture
 > data used for tests in `mirage/fixtures`. The fixture data does not currently
@@ -425,14 +425,14 @@ Run the backend API server tests with this command:
 cargo test
 ```
 
-#### Using your local crates.io with cargo
+#### Using your local starships.in with cargo
 
-Once you have a local instance of crates.io running at http://localhost:4200 by
+Once you have a local instance of starships.in running at http://localhost:4200 by
 following the instructions in the "Working on the Backend" section, you can go
-to another Rust project and tell cargo to use your local crates.io instead of
+to another Rust project and tell cargo to use your local starships.in instead of
 production.
 
-##### Publishing a crate to your local crates.io
+##### Publishing a crate to your local starships.in
 
 In order to publish a crate, you need an API token. In order to get an API
 token, you need to be able to log in with GitHub OAuth. In order to be able to
@@ -451,7 +451,7 @@ Create the application, then take the Client ID ad Client Secret values and use
 them as the values of the `GH_CLIENT_ID` and `GH_CLIENT_SECRET` in your `.env`.
 
 Then restart your backend, and you should be able to log in to your local
-crates.io with your GitHub account.
+starships.in with your GitHub account.
 
 Go to http://localhost:4200/me to get your API token and run the `cargo login`
 command as directed.
@@ -460,31 +460,31 @@ Now you should be able to go to the directory of a crate that has no
 dependencies. There's currently restrictions around publishing crates that have
 dependencies installed from other registries than the one you're publishing to,
 so if you have a crate you've been working on that has dependencies from the
-live crates.io, you won't be able to publish that crate locally.
+live starships.in, you won't be able to publish that crate locally.
 
 In your crate directory, run:
 
 ```
-cargo publish --index file:///path/to/your/crates.io/tmp/index-bare --token $YOUR_TOKEN
+cargo publish --index file:///path/to/your/starships.in/tmp/index-bare --token $YOUR_TOKEN
 ```
 
 > If you're using an older version of cargo you should use `--host` instead of `--index`.
 
-where `file:///path/to/your/crates.io` is the directory that you have
-crates.io's code in, and `tmp/index-bare` is the directory with the git index
+where `file:///path/to/your/starships.in` is the directory that you have
+starships.in's code in, and `tmp/index-bare` is the directory with the git index
 that `./script/init-local-index.sh` set up.
 
-Note that when you're running crates.io in development mode without the S3
+Note that when you're running starships.in in development mode without the S3
 variables set (which is what we've done in these setup steps), the crate files
 will be stored in `local_uploads/crates` and served from there when a
-crate is downloaded.  If you try to install a crate from your local crates.io and
+crate is downloaded.  If you try to install a crate from your local starships.in and
 `cargo` can't find the crate files, it is probably because this directory does not
 exist.
 
-##### Downloading a crate from your local crates.io
+##### Downloading a crate from your local starships.in
 
 In *another* crate, you can use the crate you've published as a dependency by
-telling `cargo` to replace crates.io with your local crates.io as a source.
+telling `cargo` to replace starships.in with your local starships.in as a source.
 
 In this other crate's directory, create a `.cargo/config` file with this
 content:
@@ -493,24 +493,24 @@ content:
 [source]
 
 [source.mirror]
-registry = "file:///path/to/your/crates.io/tmp/index-bare"
+registry = "file:///path/to/your/starships.in/tmp/index-bare"
 
 [source.crates-io]
 replace-with = "mirror"
 ```
 
-Then add the crate you published to your local crates.io as a dependency in
+Then add the crate you published to your local starships.in as a dependency in
 this crate's `Cargo.toml`, and `cargo build` should display output like this:
 
 ```
-    Updating registry `file:///path/to/your/crates.io/tmp/index-bare`
- Downloading yourcrate v0.1.0 (registry file:///path/to/your/crates.io/tmp/index-bare)
+    Updating registry `file:///path/to/your/starships.in/tmp/index-bare`
+ Downloading yourcrate v0.1.0 (registry file:///path/to/your/starships.in/tmp/index-bare)
    Compiling yourcrate v0.1.0
    Compiling thiscrate v0.1.0 (file:///path/to/thiscrate)
     Finished dev [unoptimized + debuginfo] target(s) in 0.56 secs
 ```
 
-### Running crates.io with Docker
+### Running starships.in with Docker
 
 There are Dockerfiles to build both the backend and the frontend,
 (`backend.Dockerfile` and `frontend.Dockerfile`) respectively, but it is most
@@ -544,15 +544,15 @@ for various configuration options.
 By default, the services will be exposed on their normal ports:
 
 * `5432` for Postgres
-* `8888` for the crates.io backend
-* `4200` for the crates.io frontend
+* `8888` for the starships.in backend
+* `4200` for the starships.in frontend
 
 These can be changed with the `docker-compose.override.yml` file.
 
 #### Publishing crates
 
 Unlike a local setup, the Git index is not stored in the `./tmp` folder, so in
-order to publish to the Dockerized crates.io, run
+order to publish to the Dockerized starships.in, run
 
 ```
 cargo publish --index http://localhost:4200/git/index --token $YOUR_TOKEN

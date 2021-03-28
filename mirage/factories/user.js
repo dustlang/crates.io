@@ -10,7 +10,7 @@ export default Factory.extend({
   },
 
   email() {
-    return `${this.login}@crates.io`;
+    return `${this.login}@starships.in`;
   },
 
   url() {

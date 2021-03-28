@@ -22,7 +22,7 @@ module('Acceptance | crates page', function (hooks) {
     await click('[data-test-all-crates-link]');
 
     assert.equal(currentURL(), '/crates');
-    assert.equal(getPageTitle(), 'Crates - crates.io: Rust Package Registry');
+    assert.equal(getPageTitle(), 'Crates - starships.in: Rust Package Registry');
 
     await percySnapshot(assert);
     await a11yAudit(axeConfig);
@@ -35,7 +35,7 @@ module('Acceptance | crates page', function (hooks) {
     await click('[data-test-all-crates-link]');
 
     assert.equal(currentURL(), '/crates');
-    assert.equal(getPageTitle(), 'Crates - crates.io: Rust Package Registry');
+    assert.equal(getPageTitle(), 'Crates - starships.in: Rust Package Registry');
   });
 
   test('listing crates', async function (assert) {

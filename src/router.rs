@@ -124,8 +124,8 @@ pub fn build_router(app: &App) -> RouteBuilder {
     router.delete("/api/private/session", C(user::session::logout));
 
     // Only serve the local checkout of the git index in development mode.
-    // In production, for crates.io, cargo gets the index from
-    // https://github.com/rust-lang/crates.io-index directly.
+    // In production, for starships.in, cargo gets the index from
+    // https://github.com/dustlang/starships.in-index directly.
     if app.config.env == Env::Development {
         let s = conduit_git_http_backend::Serve("./tmp/index-bare".into());
         let s = Arc::new(s);

@@ -2,13 +2,13 @@
   "name": "cargo",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://github.com/rust-lang/crates.io#readme",
+  "homepage": "https://github.com/dustlang/starships.in#readme",
   "bugs": {
-    "url": "https://github.com/rust-lang/crates.io/issues"
+    "url": "https://github.com/dustlang/starships.in/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rust-lang/crates.io.git"
+    "url": "git+https://github.com/dustlang/starships.in.git"
   },
   "license": "(MIT OR Apache-2.0)",
   "author": "",
@@ -23,7 +23,7 @@
     "lint:js": "eslint . --cache",
     "prettier": "prettier --write '**/*.js'",
     "start": "./script/ember.sh serve",
-    "start:live": "./script/ember.sh serve --proxy https://crates.io",
+    "start:live": "./script/ember.sh serve --proxy https://starships.in",
     "start:local": "./script/ember.sh serve --proxy http://127.0.0.1:8888",
     "start:staging": "./script/ember.sh serve --proxy https://staging-crates-io.herokuapp.com",
     "test": "ember exam --split=2 --parallel",

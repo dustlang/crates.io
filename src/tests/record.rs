@@ -308,7 +308,7 @@ fn replay_http(
         );
         assert_ok!(writeln!(stdout, "received: {:?}", pair));
         if name == "user-agent" {
-            assert_eq!(value, "crates.io (https://crates.io)");
+            assert_eq!(value, "starships.in (https://starships.in)");
             continue;
         }
         if IGNORED_HEADERS.contains(&name.as_str()) {
@@ -383,7 +383,7 @@ impl GhUser {
             .post("https://api.github.com/authorizations")
             .json(&Authorization {
                 scopes: vec!["read:org".to_string()],
-                note: "crates.io test".to_string(),
+                note: "starships.in test".to_string(),
                 client_id: crate::env("GH_CLIENT_ID"),
                 client_secret: crate::env("GH_CLIENT_SECRET"),
             })

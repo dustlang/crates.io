@@ -9,15 +9,15 @@ module('Route | crate.version | crate links', function (hooks) {
   test('shows all external crate links', async function (assert) {
     this.server.create('crate', {
       name: 'foo',
-      homepage: 'https://crates.io/',
+      homepage: 'https://starships.in/',
       documentation: 'https://doc.rust-lang.org/cargo/getting-started/',
-      repository: 'https://github.com/rust-lang/crates.io.git',
+      repository: 'https://github.com/dustlang/starships.in.git',
     });
     this.server.create('version', { crateId: 'foo', num: '1.0.0' });
 
     await visit('/crates/foo');
 
-    assert.dom('[data-test-homepage-link] a').hasText('crates.io').hasAttribute('href', 'https://crates.io/');
+    assert.dom('[data-test-homepage-link] a').hasText('starships.in').hasAttribute('href', 'https://starships.in/');
 
     assert
       .dom('[data-test-docs-link] a')
@@ -26,8 +26,8 @@ module('Route | crate.version | crate links', function (hooks) {
 
     assert
       .dom('[data-test-repository-link] a')
-      .hasText('github.com/rust-lang/crates.io')
-      .hasAttribute('href', 'https://github.com/rust-lang/crates.io.git');
+      .hasText('github.com/dustlang/starships.in')
+      .hasAttribute('href', 'https://github.com/dustlang/starships.in.git');
   });
 
   test('shows no external crate links if none are set', async function (assert) {
@@ -44,8 +44,8 @@ module('Route | crate.version | crate links', function (hooks) {
   test('hide the homepage link if it is the same as the repository', async function (assert) {
     this.server.create('crate', {
       name: 'foo',
-      homepage: 'https://github.com/rust-lang/crates.io',
-      repository: 'https://github.com/rust-lang/crates.io',
+      homepage: 'https://github.com/dustlang/starships.in',
+      repository: 'https://github.com/dustlang/starships.in',
     });
     this.server.create('version', { crateId: 'foo', num: '1.0.0' });
 
@@ -56,15 +56,15 @@ module('Route | crate.version | crate links', function (hooks) {
 
     assert
       .dom('[data-test-repository-link] a')
-      .hasText('github.com/rust-lang/crates.io')
-      .hasAttribute('href', 'https://github.com/rust-lang/crates.io');
+      .hasText('github.com/dustlang/starships.in')
+      .hasAttribute('href', 'https://github.com/dustlang/starships.in');
   });
 
   test('hide the homepage link if it is the same as the repository plus `.git`', async function (assert) {
     this.server.create('crate', {
       name: 'foo',
-      homepage: 'https://github.com/rust-lang/crates.io/',
-      repository: 'https://github.com/rust-lang/crates.io.git',
+      homepage: 'https://github.com/dustlang/starships.in/',
+      repository: 'https://github.com/dustlang/starships.in.git',
     });
     this.server.create('version', { crateId: 'foo', num: '1.0.0' });
 
@@ -75,7 +75,7 @@ module('Route | crate.version | crate links', function (hooks) {
 
     assert
       .dom('[data-test-repository-link] a')
-      .hasText('github.com/rust-lang/crates.io')
-      .hasAttribute('href', 'https://github.com/rust-lang/crates.io.git');
+      .hasText('github.com/dustlang/starships.in')
+      .hasAttribute('href', 'https://github.com/dustlang/starships.in.git');
   });
 });

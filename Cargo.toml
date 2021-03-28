@@ -3,8 +3,8 @@ name = "cargo-registry"
 authors = ["Alex Crichton <alex@alexcrichton.com>"]
 version = "0.2.2"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/rust-lang/crates.io"
-description = "Backend of crates.io"
+repository = "https://github.com/dustlang/starships.in"
+description = "Backend of starships.in"
 edition = "2018"
 default-run = "server"
 

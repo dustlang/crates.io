@@ -55,8 +55,8 @@ impl Handler for BlockTraffic {
                 "We are unable to process your request at this time. \
                  This usually means that you are in violation of our crawler \
                  policy (https://{}/policies#crawlers). \
-                 Please open an issue at https://github.com/rust-lang/crates.io \
-                 or email help@crates.io \
+                 Please open an issue at https://github.com/dustlang/starships.in \
+                 or email help@starships.in \
                  and provide the request id {}",
                 domain_name,
                 // Heroku should always set this header

@@ -157,7 +157,7 @@ impl Repository {
                 checkout_path.path(),
             )?;
 
-        // All commits to the index registry made through crates.io will be made by bors, the Rust
+        // All commits to the index registry made through starships.in will be made by bors, the Rust
         // community's friendly GitHub bot.
         let mut cfg = repository.config()?;
         cfg.set_str("user.name", "bors")?;

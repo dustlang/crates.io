@@ -5,7 +5,7 @@ use diesel::{pg::upsert::excluded, prelude::*};
 use std::collections::HashMap;
 use std::sync::atomic::{AtomicI64, AtomicUsize, Ordering};
 
-/// crates.io receives a lot of download requests, and we can't execute a write query to the
+/// starships.in receives a lot of download requests, and we can't execute a write query to the
 /// database during each connection for performance reasons. To reduce the write load, this struct
 /// collects the pending updates from the current process and writes in batch.
 ///
@@ -131,7 +131,7 @@ impl DownloadsCounter {
 
         if !to_insert.is_empty() {
             // The rows we're about to insert need to be sorted to avoid deadlocks when multiple
-            // instances of crates.io are running at the same time.
+            // instances of starships.in are running at the same time.
             //
             // In PostgreSQL a transaction modifying a row locks that row until the transaction is
             // committed. Multiple transactions inserting rows into a table could end up

@@ -682,7 +682,7 @@ fn unknown_badge() {
 
     let mut badges = HashMap::new();
 
-    // This is not a badge that crates.io knows about
+    // This is not a badge that starships.in knows about
     let mut invalid_attributes = HashMap::new();
     invalid_attributes.insert(
         String::from("not-a-badge-attribute"),

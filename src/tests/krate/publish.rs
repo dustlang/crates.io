@@ -180,7 +180,7 @@ fn new_krate_with_dependency() {
         // Insert a crate directly into the database so that new_dep can depend on it
         // The name choice of `foo-dep` is important! It has the property of
         // name != canon_crate_name(name) and is a regression test for
-        // https://github.com/rust-lang/crates.io/issues/651
+        // https://github.com/dustlang/starships.in/issues/651
         CrateBuilder::new("foo-dep", user.as_model().id).expect_build(conn);
     });
 
@@ -210,7 +210,7 @@ fn new_krate_with_broken_dependency_requirement() {
         // Insert a crate directly into the database so that new_dep can depend on it
         // The name choice of `foo-dep` is important! It has the property of
         // name != canon_crate_name(name) and is a regression test for
-        // https://github.com/rust-lang/crates.io/issues/651
+        // https://github.com/dustlang/starships.in/issues/651
         CrateBuilder::new("foo-dep", user.as_model().id).expect_build(conn);
     });
 
@@ -284,7 +284,7 @@ fn reject_new_crate_with_alternative_registry_dependency() {
     assert_eq!(response.status(), StatusCode::OK);
     assert_eq!(
         response.json(),
-        json!({ "errors": [{ "detail": "Dependency `dep` is hosted on another registry. Cross-registry dependencies are not permitted on crates.io." }] })
+        json!({ "errors": [{ "detail": "Dependency `dep` is hosted on another registry. Cross-registry dependencies are not permitted on starships.in." }] })
     );
 }
 
@@ -592,7 +592,7 @@ fn new_krate_without_any_email_fails() {
     assert_eq!(response.status(), StatusCode::OK);
     assert_eq!(
         response.json(),
-        json!({ "errors": [{ "detail": "A verified email address is required to publish crates to crates.io. Visit https://crates.io/me to set and verify your email address." }] })
+        json!({ "errors": [{ "detail": "A verified email address is required to publish crates to starships.in. Visit https://starships.in/me to set and verify your email address." }] })
     );
 }
 
@@ -613,7 +613,7 @@ fn new_krate_with_unverified_email_fails() {
     assert_eq!(response.status(), StatusCode::OK);
     assert_eq!(
         response.json(),
-        json!({ "errors": [{ "detail": "A verified email address is required to publish crates to crates.io. Visit https://crates.io/me to set and verify your email address." }] })
+        json!({ "errors": [{ "detail": "A verified email address is required to publish crates to starships.in. Visit https://starships.in/me to set and verify your email address." }] })
     );
 }
 
@@ -761,7 +761,7 @@ fn good_badges() {
     let mut badge_attributes = HashMap::new();
     badge_attributes.insert(
         String::from("repository"),
-        String::from("rust-lang/crates.io"),
+        String::from("rust-lang/starships.in"),
     );
     badges.insert(String::from("travis-ci"), badge_attributes);
 
@@ -777,7 +777,7 @@ fn good_badges() {
     assert_eq!(badges[0].badge_type, "travis-ci");
     assert_eq!(
         badges[0].attributes["repository"],
-        Some(String::from("rust-lang/crates.io"))
+        Some(String::from("rust-lang/starships.in"))
     );
 }
 

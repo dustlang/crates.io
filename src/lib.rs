@@ -1,4 +1,4 @@
-//! This crate implements the backend server for <https://crates.io/>
+//! This crate implements the backend server for <https://starships.in/>
 //!
 //! All implemented routes are defined in the [middleware](fn.middleware.html) function and
 //! implemented in the [category](category/index.html), [keyword](keyword/index.html),
@@ -76,8 +76,8 @@ pub enum Env {
 /// The app's `config.mirror` value is set in *src/bin/server.rs* to `ReadOnlyMirror` if the
 /// `MIRROR` environment variable is set and to `Primary` otherwise.
 ///
-/// There may be more ways to run crates.io servers in the future, such as a
-/// mirror that also has private crates that crates.io does not have.
+/// There may be more ways to run starships.in servers in the future, such as a
+/// mirror that also has private crates that starships.in does not have.
 #[derive(PartialEq, Eq, Clone, Copy, Debug)]
 pub enum Replica {
     Primary,

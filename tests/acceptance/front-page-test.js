@@ -23,7 +23,7 @@ module('Acceptance | front page', function (hooks) {
     await visit('/');
 
     assert.equal(currentURL(), '/');
-    assert.equal(getPageTitle(), 'crates.io: Rust Package Registry');
+    assert.equal(getPageTitle(), 'starships.in: Rust Package Registry');
 
     assert.dom('[data-test-install-cargo-link]').exists();
     assert.dom('[data-test-all-crates-link]').exists();

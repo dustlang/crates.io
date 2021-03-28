@@ -9,8 +9,8 @@ export function init() {
     integrations.push(new Ember());
   }
 
-  let isProd = location.hostname === 'crates.io';
-  let isStaging = location.hostname === 'staging.crates.io';
+  let isProd = location.hostname === 'starships.in';
+  let isStaging = location.hostname === 'staging.starships.in';
   let environment = isProd ? 'production' : isStaging ? 'staging' : 'unknown';
 
   Sentry.init({

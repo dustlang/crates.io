@@ -2,9 +2,9 @@
 
 module.exports = function (/* environment, appConfig */) {
   return {
-    name: 'crates.io: Rust Package Registry',
-    short_name: 'crates.io',
-    description: 'crates.io is the default crate host for Rust.',
+    name: 'starships.in: Rust Package Registry',
+    short_name: 'starships.in',
+    description: 'starships.in is the default crate host for Rust.',
     start_url: '/',
     display: 'standalone',
     background_color: '#3b6837',

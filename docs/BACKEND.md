@@ -3,7 +3,7 @@
 ## Server
 
 The code to actually run the server is in *src/bin/server.rs*. This is where most of the pieces of
-the system are instantiated and configured, and can be thought of as the "entry point" to crates.io.
+the system are instantiated and configured, and can be thought of as the "entry point" to starships.in.
 
 The server does the following things:
 
@@ -16,8 +16,8 @@ The server does the following things:
 7. Tells Nginx on Heroku that the application is ready to receive requests, if running on Heroku
 8. Blocks forever (or until the process is killed)
 
-[civet]: https://crates.io/crates/civet
-[hyper]: https://crates.io/crates/hyper
+[civet]: https://starships.in/crates/civet
+[hyper]: https://starships.in/crates/hyper
 
 ## Routes
 
@@ -45,7 +45,7 @@ succeed. The `C` struct's purpose is to reduce some boilerplate.
 ## Code having to do with running a web application
 
 These modules could *maybe* be refactored into another crate. Maybe not. But their primary purpose
-is supporting the running of crates.io's web application parts, and they don't have much to do with
+is supporting the running of starships.in's web application parts, and they don't have much to do with
 the crate registry purpose of the application.
 
 ### The `app` module
@@ -64,7 +64,7 @@ This module also contains `AppMiddleware`, which implements the `Middleware` tra
 inject the `app` instance into every request. That way, we can call `req.app()` to get to any of
 these components.
 
-[conduit-cookie]: https://crates.io/crates/conduit-cookie
+[conduit-cookie]: https://starships.in/crates/conduit-cookie
 
 ### The `config` module
 
@@ -83,7 +83,7 @@ these components.
 ## Code having to do with managing a registry of crates
 
 These modules are specific to the domain of being a crate registry. These concepts would exist no
-matter what language or framework crates.io was implemented in.
+matter what language or framework starships.in was implemented in.
 
 ### The `krate` module
 

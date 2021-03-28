@@ -11,7 +11,7 @@ use crate::util::errors::ReadOnlyMode;
 
 /// Handles the `GET /api/private/session/begin` route.
 ///
-/// This route will return an authorization URL for the GitHub OAuth flow including the crates.io
+/// This route will return an authorization URL for the GitHub OAuth flow including the starships.in
 /// `client_id` and a randomly generated `state` secret.
 ///
 /// see <https://developer.github.com/v3/oauth/#redirect-users-to-request-github-access>

@@ -16,12 +16,12 @@ module('Component | CrateSidebar::Link', function (hooks) {
   });
 
   test('renders GitHub icon for GitHub links', async function (assert) {
-    await render(hbs`<CrateSidebar::Link @url="https://github.com/rust-lang/crates.io" />`);
+    await render(hbs`<CrateSidebar::Link @url="https://github.com/dustlang/starships.in" />`);
     assert.dom('[data-test-icon]').exists({ count: 1 }).hasAttribute('data-test-icon', 'github');
     assert
       .dom('[data-test-link]')
-      .hasAttribute('href', 'https://github.com/rust-lang/crates.io')
-      .hasText('github.com/rust-lang/crates.io');
+      .hasAttribute('href', 'https://github.com/dustlang/starships.in')
+      .hasText('github.com/dustlang/starships.in');
   });
 
   test('renders docs.rs icon for docs.rs links', async function (assert) {
@@ -41,11 +41,11 @@ module('Component | CrateSidebar::Link', function (hooks) {
   });
 
   test('strips the trailing `.git` from GitHub project URLs', async function (assert) {
-    await render(hbs`<CrateSidebar::Link @url="https://github.com/rust-lang/crates.io.git" />`);
+    await render(hbs`<CrateSidebar::Link @url="https://github.com/dustlang/starships.in.git" />`);
     assert
       .dom('[data-test-link]')
-      .hasAttribute('href', 'https://github.com/rust-lang/crates.io.git')
-      .hasText('github.com/rust-lang/crates.io');
+      .hasAttribute('href', 'https://github.com/dustlang/starships.in.git')
+      .hasText('github.com/dustlang/starships.in');
   });
 
   test('does not strip the trailing `.git` from other URLs', async function (assert) {

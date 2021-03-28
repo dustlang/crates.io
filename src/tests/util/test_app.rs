@@ -313,7 +313,7 @@ fn simple_config() -> Config {
         api_protocol: String::from("http"),
         publish_rate_limit: Default::default(),
         blocked_traffic: Default::default(),
-        domain_name: "crates.io".into(),
+        domain_name: "starships.in".into(),
         allowed_origins: Vec::new(),
         downloads_persist_interval_ms: 1000,
     }

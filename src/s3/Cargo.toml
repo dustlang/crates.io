@@ -4,8 +4,8 @@ name = "cargo-registry-s3"
 version = "0.2.0"
 authors = ["Alex Crichton <alex@alexcrichton.com>"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/rust-lang/crates.io"
-description = "Interaction between crates.io and S3 for storing crate files"
+repository = "https://github.com/dustlang/starships.in"
+description = "Interaction between starships.in and S3 for storing crate files"
 edition = "2018"
 
 [lib]

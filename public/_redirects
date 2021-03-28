@@ -1,2 +1,2 @@
-/api/*   https://crates.io/api/:splat
+/api/*   https://starships.in/api/:splat
 /*       /index.html    200

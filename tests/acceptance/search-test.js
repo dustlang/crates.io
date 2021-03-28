@@ -24,7 +24,7 @@ module('Acceptance | search', function (hooks) {
     await triggerEvent('[data-test-search-form]', 'submit');
 
     assert.equal(currentURL(), '/search?q=rust');
-    assert.equal(getPageTitle(), "Search Results for 'rust' - crates.io: Rust Package Registry");
+    assert.equal(getPageTitle(), "Search Results for 'rust' - starships.in: Rust Package Registry");
 
     assert.dom('[data-test-header]').hasText("Search Results for 'rust'");
     assert.dom('[data-test-search-nav]').hasText('Displaying 1-7 of 7 total results');
@@ -50,7 +50,7 @@ module('Acceptance | search', function (hooks) {
     await visit('/search?q=rust');
 
     assert.equal(currentURL(), '/search?q=rust');
-    assert.equal(getPageTitle(), "Search Results for 'rust' - crates.io: Rust Package Registry");
+    assert.equal(getPageTitle(), "Search Results for 'rust' - starships.in: Rust Package Registry");
 
     assert.dom('[data-test-search-input]').hasValue('rust');
     assert.dom('[data-test-header]').hasText("Search Results for 'rust'");

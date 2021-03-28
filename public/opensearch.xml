@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
     <ShortName>Cargo</ShortName>
-    <Description>Search for crates on crates.io</Description>
-    <Image type="image/png">https://crates.io/cargo.png</Image>
-    <Url type="text/html" method="get" template="https://crates.io/search?q={searchTerms}"/>
+    <Description>Search for crates on starships.in</Description>
+    <Image type="image/png">https://starships.in/cargo.png</Image>
+    <Url type="text/html" method="get" template="https://starships.in/search?q={searchTerms}"/>
 </OpenSearchDescription>

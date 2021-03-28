@@ -68,7 +68,7 @@ impl GitHubClient {
             .get(&url)
             .header(header::ACCEPT, "application/vnd.github.v3+json")
             .header(header::AUTHORIZATION, format!("token {}", auth.secret()))
-            .header(header::USER_AGENT, "crates.io (https://crates.io)")
+            .header(header::USER_AGENT, "starships.in (https://starships.in)")
             .send()?
             .error_for_status()
             .map_err(|e| handle_error_response(&e))?
@@ -101,7 +101,7 @@ fn handle_error_response(error: &reqwest::Error) -> Box<dyn AppError> {
              to query a necessary property from GitHub \
              to complete this request. \
              You may need to re-authenticate on \
-             crates.io to grant permission to read \
+             starships.in to grant permission to read \
              GitHub org memberships.",
         ),
         Some(Status::NOT_FOUND) => not_found(),

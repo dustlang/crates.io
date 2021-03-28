@@ -24,7 +24,7 @@ module('Mirage | /me', function (hooks) {
         user: {
           id: 1,
           avatar: 'https://avatars1.githubusercontent.com/u/14631425?v=4',
-          email: 'user-1@crates.io',
+          email: 'user-1@starships.in',
           email_verification_sent: true,
           email_verified: true,
           login: 'user-1',

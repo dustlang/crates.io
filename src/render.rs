@@ -345,11 +345,11 @@ mod tests {
 
     #[test]
     fn text_with_inline_javascript() {
-        let text = r#"foo_readme\n\n<a href="https://crates.io/crates/cargo-registry" onclick="window.alert('Got you')">Crate page</a>"#;
+        let text = r#"foo_readme\n\n<a href="https://starships.in/crates/cargo-registry" onclick="window.alert('Got you')">Crate page</a>"#;
         let result = markdown_to_html(text, None);
         assert_eq!(
             result,
-            "<p>foo_readme\\n\\n<a href=\"https://crates.io/crates/cargo-registry\" rel=\"nofollow noopener noreferrer\">Crate page</a></p>\n"
+            "<p>foo_readme\\n\\n<a href=\"https://starships.in/crates/cargo-registry\" rel=\"nofollow noopener noreferrer\">Crate page</a></p>\n"
         );
     }
 
@@ -451,13 +451,13 @@ mod tests {
     #[test]
     fn absolute_links_dont_get_resolved() {
         let readme_text =
-            "[![Crates.io](https://img.shields.io/crates/v/clap.svg)](https://crates.io/crates/clap)";
+            "[![Crates.io](https://img.shields.io/crates/v/clap.svg)](https://starships.in/crates/clap)";
         let repository = "https://github.com/kbknapp/clap-rs/";
         let result = markdown_to_html(readme_text, Some(repository));
 
         assert_eq!(
             result,
-            "<p><a href=\"https://crates.io/crates/clap\" rel=\"nofollow noopener noreferrer\"><img src=\"https://img.shields.io/crates/v/clap.svg\" alt=\"Crates.io\"></a></p>\n"
+            "<p><a href=\"https://starships.in/crates/clap\" rel=\"nofollow noopener noreferrer\"><img src=\"https://img.shields.io/crates/v/clap.svg\" alt=\"Crates.io\"></a></p>\n"
         );
     }
 

@@ -33,7 +33,7 @@ module('Acceptance | /accept-invite/:token', function (hooks) {
 
     await visit('/accept-invite/unknown');
     assert.equal(currentURL(), '/accept-invite/unknown');
-    assert.dom('[data-test-error-message]').hasText('You may want to visit crates.io/me/pending-invites to try again.');
+    assert.dom('[data-test-error-message]').hasText('You may want to visit starships.in/me/pending-invites to try again.');
   });
 
   test('shows success for known token', async function (assert) {

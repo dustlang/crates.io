@@ -26,7 +26,7 @@ pub const MISSING_RIGHTS_ERROR_MESSAGE: &str =
      publishing.";
 
 pub const WILDCARD_ERROR_MESSAGE: &str = "wildcard (`*`) dependency constraints are not allowed \
-     on crates.io. See https://doc.rust-lang.org/cargo/faq.html#can-\
+     on starships.in. See https://doc.rust-lang.org/cargo/faq.html#can-\
      libraries-use--as-a-version-for-their-dependencies for more \
      information";
 
@@ -36,7 +36,7 @@ pub const WILDCARD_ERROR_MESSAGE: &str = "wildcard (`*`) dependency constraints 
 ///
 /// Currently blocks the HTTP thread, perhaps some function calls can spawn new
 /// threads and return completion or error through other methods  a `cargo publish
-/// --status` command, via crates.io's front end, or email.
+/// --status` command, via starships.in's front end, or email.
 pub fn publish(req: &mut dyn RequestExt) -> EndpointResult {
     let app = Arc::clone(req.app());
 
@@ -66,7 +66,7 @@ pub fn publish(req: &mut dyn RequestExt) -> EndpointResult {
     let verified_email_address = user.verified_email(&conn)?;
     let verified_email_address = verified_email_address.ok_or_else(|| {
         cargo_err(&format!(
-            "A verified email address is required to publish crates to crates.io. \
+            "A verified email address is required to publish crates to starships.in. \
              Visit https://{}/me to set and verify your email address.",
             app.config.domain_name,
         ))
@@ -217,7 +217,7 @@ pub fn publish(req: &mut dyn RequestExt) -> EndpointResult {
         git::add_crate(git_crate).enqueue(&conn)?;
 
         // The `other` field on `PublishWarnings` was introduced to handle a temporary warning
-        // that is no longer needed. As such, crates.io currently does not return any `other`
+        // that is no longer needed. As such, starships.in currently does not return any `other`
         // warnings at this time, but if we need to, the field is available.
         let warnings = PublishWarnings {
             invalid_categories: ignored_invalid_categories,
@@ -298,7 +298,7 @@ pub fn add_dependencies(
         .map(|dep| {
             if let Some(registry) = &dep.registry {
                 if !registry.is_empty() {
-                    return Err(cargo_err(&format_args!("Dependency `{}` is hosted on another registry. Cross-registry dependencies are not permitted on crates.io.", &*dep.name)));
+                    return Err(cargo_err(&format_args!("Dependency `{}` is hosted on another registry. Cross-registry dependencies are not permitted on starships.in.", &*dep.name)));
                 }
             }
 

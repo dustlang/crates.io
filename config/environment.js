@@ -24,7 +24,7 @@ module.exports = function (environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['crates.io', /^localhost:\d+$/, /\.herokuapp\.com$/],
+      hostWhitelist: ['starships.in', /^localhost:\d+$/, /\.herokuapp\.com$/],
     },
 
     'ember-cli-mirage': {

@@ -32,7 +32,7 @@ impl Default for Config {
     ///
     /// Pulls values from the following environment variables:
     ///
-    /// - `MIRROR`: Is this instance of cargo_registry a mirror of crates.io.
+    /// - `MIRROR`: Is this instance of cargo_registry a mirror of starships.in.
     /// - `HEROKU`: Is this instance of cargo_registry currently running on Heroku.
     /// - `S3_BUCKET`: The S3 bucket used to store crate files. If not present during development,
     ///    cargo_registry will fall back to a local uploader.
@@ -117,7 +117,7 @@ impl Default for Config {
                 } else {
                     // If we don't set the `S3_BUCKET` variable, we'll use a development-only
                     // uploader that makes it possible to run and publish to a locally-running
-                    // crates.io instance without needing to set up an account and a bucket in S3.
+                    // starships.in instance without needing to set up an account and a bucket in S3.
                     println!(
                         "Using local uploader, crate files will be in the local_uploads directory"
                     );
@@ -158,7 +158,7 @@ impl Default for Config {
 }
 
 pub(crate) fn domain_name() -> String {
-    dotenv::var("DOMAIN_NAME").unwrap_or_else(|_| "crates.io".into())
+    dotenv::var("DOMAIN_NAME").unwrap_or_else(|_| "starships.in".into())
 }
 
 fn blocked_traffic() -> Vec<(String, Vec<String>)> {

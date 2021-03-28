@@ -139,7 +139,7 @@ impl AppError for TooManyRequests {
         let detail = format!(
             "You have published too many crates in a \
              short period of time. Please try again after {} or email \
-             help@crates.io to have your limit increased.",
+             help@starships.in to have your limit increased.",
             retry_after
         );
         let mut response = json_error(&detail, StatusCode::TOO_MANY_REQUESTS);
@@ -182,11 +182,11 @@ impl AppError for InsecurelyGeneratedTokenRevoked {
 }
 
 pub const TOKEN_FORMAT_ERROR: &str =
-    "The given API token does not match the format used by crates.io. \
+    "The given API token does not match the format used by starships.in. \
     \
     Tokens generated before 2020-07-14 were generated with an insecure \
     random number generator, and have been revoked. You can generate a \
-    new token at https://crates.io/me. \
+    new token at https://starships.in/me. \
     \
     For more information please see \
     https://blog.rust-lang.org/2020/07/14/crates-io-security-advisory.html. \

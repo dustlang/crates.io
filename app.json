@@ -1,7 +1,7 @@
 {
   "name": "Crates.io Mirror",
-  "description": "A mirror of crates.io",
-  "repository": "https://github.com/rust-lang/crates.io",
+  "description": "A mirror of starships.in",
+  "repository": "https://github.com/dustlang/starships.in",
   "env": {
       "GIT_REPO_URL": {
           "description": "The git URL of your crates index repository."

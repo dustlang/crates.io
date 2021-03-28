@@ -19,7 +19,7 @@ jobs:
       # Percy secrets are included here to enable Percy's GitHub integration
       # on community-submitted PRs
       PERCY_TOKEN: 0d8707a02b19aebbec79bb0bf302b8d2fa95edb33169cfe41b084289596670b1
-      PERCY_PROJECT: crates-io/crates.io
+      PERCY_PROJECT: starships-in/starships.in
 
     steps:
       - uses: actions/checkout@v2
@@ -38,11 +38,11 @@ jobs:
           yarn lint:deps
 
       - name: Run percy exec
-        if: github.repository == 'rust-lang/crates.io'
+        if: github.repository == 'rust-lang/starships.in'
         run: npx percy exec -- npm run test-coverage
 
       - name: test-coverage
-        if: github.repository != 'rust-lang/crates.io'
+        if: github.repository != 'rust-lang/starships.in'
         run: yarn test-coverage
 
   embroider:

@@ -46,7 +46,7 @@ trait MockEmailHelper: RequestHelper {
     // this is starting to look like a builder might help?
     // I want to explore alternative abstractions in any case.
     fn update_email_more_control(&self, user_id: i32, email: Option<&str>) -> Response<OkBool> {
-        // When updating your email in crates.io, the request goes to the user route with PUT.
+        // When updating your email in starships.in, the request goes to the user route with PUT.
         // Ember sends all the user attributes. We check to make sure the ID in the URL matches
         // the ID of the currently logged in user, then we ignore everything but the email address.
         let body = json!({"user": {
@@ -149,9 +149,9 @@ fn show_latest_user_case_insensitively() {
         // Please do not delete or modify the setup of this test in order to get it to pass.
         // This setup mimics how GitHub works. If someone abandons a GitHub account, the username is
         // available for anyone to take. We need to support having multiple user accounts
-        // with the same gh_login in crates.io. `gh_id` is stable across renames, so that field
+        // with the same gh_login in starships.in. `gh_id` is stable across renames, so that field
         // should be used for uniquely identifying GitHub accounts whenever possible. For the
-        // crates.io/user/:username pages, the best we can do is show the last crates.io account
+        // starships.in/user/:username pages, the best we can do is show the last starships.in account
         // created with that username.
         assert_ok!(NewUser::new(
             1,
@@ -367,7 +367,7 @@ fn updating_existing_user_doesnt_change_api_token() {
 
 /*  Given a GitHub user, check that if the user logs in,
     updates their email, logs out, then logs back in, the
-    email they added to crates.io will not be overwritten
+    email they added to starships.in will not be overwritten
     by the information sent by GitHub.
 
     This bug is problematic if the user's email preferences
@@ -393,7 +393,7 @@ fn github_without_email_does_not_overwrite_email() {
     // Check that the setup is correct and the user indeed has no email
     assert_eq!(json.user.email, None);
 
-    // Add an email address in crates.io
+    // Add an email address in starships.in
     user_without_github_email.update_email("apricot@apricots.apricot");
 
     // Simulate the same user logging in via GitHub again, still with no email in GitHub.
@@ -413,7 +413,7 @@ fn github_without_email_does_not_overwrite_email() {
 }
 
 /* Given a new user, test that if they sign in with one email, change their email on GitHub, then
-   sign in again, that the email in crates.io will remain set to the original email used on GitHub.
+   sign in again, that the email in starships.in will remain set to the original email used on GitHub.
 */
 #[test]
 fn github_with_email_does_not_overwrite_email() {
@@ -430,7 +430,7 @@ fn github_with_email_does_not_overwrite_email() {
 
     let new_github_email = "new-email-in-github@example.com";
 
-    // Simulate logging in to crates.io after changing your email in GitHub
+    // Simulate logging in to starships.in after changing your email in GitHub
     let user_with_different_email_in_github = app.db(|conn| {
         let u = NewUser {
             // Use the same github ID to link to the existing account
@@ -446,7 +446,7 @@ fn github_with_email_does_not_overwrite_email() {
     assert_eq!(json.user.email, Some(original_email));
 }
 
-/*  Given a crates.io user, check that the user's email can be
+/*  Given a starships.in user, check that the user's email can be
     updated in the database (PUT /user/:user_id), then check
     that the updated email is sent back to the user (GET /me).
 */
@@ -465,7 +465,7 @@ fn test_email_get_and_put() {
     assert!(json.user.email_verification_sent);
 }
 
-/*  Given a crates.io user, check to make sure that the user
+/*  Given a starships.in user, check to make sure that the user
     cannot add to the database an empty string or null as
     their email. If an attempt is made, update_user.rs will
     return an error indicating that an empty email cannot be

@@ -16,12 +16,12 @@ Documentation about the codebase appears in these locations:
 
 ## Backend - Rust
 
-The backend of crates.io is written in Rust. Most of that code lives in the *src* directory. It
+The backend of starships.in is written in Rust. Most of that code lives in the *src* directory. It
 serves a JSON API over HTTP, and the HTTP server interface is provided by the [conduit][] crate and
 related crates. More information about the backend is in
-[`docs/BACKEND.md`](https://github.com/rust-lang/crates.io/blob/master/docs/BACKEND.md).
+[`docs/BACKEND.md`](https://github.com/dustlang/starships.in/blob/master/docs/BACKEND.md).
 
-[conduit]: https://crates.io/crates/conduit
+[conduit]: https://starships.in/crates/conduit
 
 These files and directories have to do with the backend:
 
@@ -39,8 +39,8 @@ The backend stores information in a Postgres database.
 
 ## Frontend - Ember.js
 
-The frontend of crates.io is written in JavaScript using [Ember.js][]. More information about the
-frontend is in [`docs/FRONTEND.md`](https://github.com/rust-lang/crates.io/blob/master/docs/FRONTEND.md).
+The frontend of starships.in is written in JavaScript using [Ember.js][]. More information about the
+frontend is in [`docs/FRONTEND.md`](https://github.com/dustlang/starships.in/blob/master/docs/FRONTEND.md).
 
 [Ember.js]: https://emberjs.com/
 
@@ -68,9 +68,9 @@ These files have to do with the frontend:
 Crates.io is deployed on [Heroku](https://heroku.com/). See [`docs/MIRROR.md`][] for info about
 setting up your own instance on Heroku!
 
-[`docs/MIRROR.md`]: https://github.com/rust-lang/crates.io/blob/master/docs/MIRROR.md
+[`docs/MIRROR.md`]: https://github.com/dustlang/starships.in/blob/master/docs/MIRROR.md
 
-These files are Heroku-specific; if you're deploying the crates.io codebase on another platform,
+These files are Heroku-specific; if you're deploying the starships.in codebase on another platform,
 there's useful information in these files that you might need to translate to a different format
 for another platform.
 
@@ -83,7 +83,7 @@ for another platform.
 
 ## Development
 
-These files are mostly only relevant when running crates.io's code in development mode.
+These files are mostly only relevant when running starships.in's code in development mode.
 
 * `.editorconfig` - Coding style definitions supported by some IDEs // TODO: Reference extensions
   for common editors
@@ -100,4 +100,4 @@ local development environment
 * `.github/workflows/*` - Configuration for continuous integration at [GitHub Actions]
 * `.watchmanconfig` - Use by Ember CLI to efficiently watch for file changes if you install watchman
 
-[GitHub Actions]: https://github.com/rust-lang/crates.io/actions
+[GitHub Actions]: https://github.com/dustlang/starships.in/actions
